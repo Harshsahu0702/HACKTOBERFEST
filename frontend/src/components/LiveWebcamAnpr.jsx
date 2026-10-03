@@ -735,7 +735,7 @@ export function LiveWebcamAnpr({
             </span>
             <input
               type="text"
-              placeholder="e.g. https://drishti-production.up.railway.app"
+              placeholder="e.g. https://web-production-deb65.up.railway.app"
               value={customBackendUrl}
               onChange={(e) => setCustomBackendUrl(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleConnectBackend()}
