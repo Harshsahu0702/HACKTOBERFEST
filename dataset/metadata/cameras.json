@@ -1,0 +1,38 @@
+[
+  {
+    "camera_id": "junction_A_camera_01",
+    "junction_id": "junction_A",
+    "junction_name": "Junction A — South Gate Quad",
+    "camera_name": "Junction A — Camera 01 (Inbound Entry)",
+    "video_path": "dataset/junction_A/camera_01.mp4",
+    "lat": 23.710299,
+    "lng": 86.952779
+  },
+  {
+    "camera_id": "junction_A_camera_02",
+    "junction_id": "junction_A",
+    "junction_name": "Junction A — South Gate Quad",
+    "camera_name": "Junction A — Camera 02 (Outbound Exit)",
+    "video_path": "dataset/junction_A/camera_02.mp4",
+    "lat": 23.710293,
+    "lng": 86.952695
+  },
+  {
+    "camera_id": "junction_B_camera_01",
+    "junction_id": "junction_B",
+    "junction_name": "Junction B — North Gate Quad",
+    "camera_name": "Junction B — Camera 01 (Inbound Entry)",
+    "video_path": "dataset/junction_B/camera_01.mp4",
+    "lat": 23.713932,
+    "lng": 86.952211
+  },
+  {
+    "camera_id": "junction_B_camera_02",
+    "junction_id": "junction_B",
+    "junction_name": "Junction B — North Gate Quad",
+    "camera_name": "Junction B — Camera 02 (Outbound Exit)",
+    "video_path": "dataset/junction_B/camera_02.mp4",
+    "lat": 23.713929,
+    "lng": 86.952144
+  }
+]

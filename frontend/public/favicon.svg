@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c140e" />
+      <stop offset="50%" stop-color="#120e0a" />
+      <stop offset="100%" stop-color="#080705" />
+    </linearGradient>
+
+    <!-- Amber Eye Gradients -->
+    <linearGradient id="eyeAmberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="45%" stop-color="#F59E0B" />
+      <stop offset="80%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#92400E" />
+    </linearGradient>
+
+    <!-- Cyan Arc Gradient -->
+    <linearGradient id="eyeCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+
+    <!-- Radial Pupil Glow -->
+    <radialGradient id="pupilGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDE68A" stop-opacity="1" />
+      <stop offset="35%" stop-color="#F59E0B" stop-opacity="0.95" />
+      <stop offset="70%" stop-color="#B45309" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#78350F" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Iris Aura -->
+    <radialGradient id="irisAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.85" />
+      <stop offset="60%" stop-color="#0369A1" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Glow Filter for Cyber Lasers -->
+    <filter id="eyeGlowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- High-contrast Badge Container -->
+  <rect x="3" y="3" width="114" height="114" rx="26" fill="url(#bgGrad)" stroke="#D97706" stroke-width="2.5" stroke-opacity="0.55" />
+
+  <!-- Outer Corner HUD Tactical Brackets -->
+  <g stroke="#F59E0B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+    <!-- Top-Left -->
+    <path d="M 14 30 L 14 16 L 30 16" />
+    <!-- Top-Right -->
+    <path d="M 90 16 L 106 16 L 106 30" />
+    <!-- Bottom-Left -->
+    <path d="M 14 90 L 14 104 L 30 104" />
+    <!-- Bottom-Right -->
+    <path d="M 90 104 L 106 104 L 106 90" />
+  </g>
+
+  <!-- Outer Radar Compass Rings -->
+  <circle cx="60" cy="60" r="47" stroke="#D97706" stroke-width="1.4" stroke-dasharray="4 6" stroke-opacity="0.55" />
+  <circle cx="60" cy="60" r="43" stroke="#D97706" stroke-width="0.9" stroke-opacity="0.3" />
+
+  <!-- Cardinal Axis Ticks -->
+  <line x1="60" y1="13" x2="60" y2="18" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+  <line x1="60" y1="102" x2="60" y2="107" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+  <line x1="13" y1="60" x2="18" y2="60" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+  <line x1="102" y1="60" x2="107" y2="60" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Segmented Cyan Tracking Arc -->
+  <circle cx="60" cy="60" r="37" stroke="url(#eyeCyanGrad)" stroke-width="2.2" stroke-dasharray="24 14 8 14" stroke-opacity="0.85" />
+
+  <!-- Subtle Inner Eyelid Fill -->
+  <path d="M 22 60 Q 60 28 98 60 Q 60 92 22 60 Z" stroke="#D97706" stroke-width="1" stroke-opacity="0.35" fill="#15110d" fill-opacity="0.75" />
+
+  <!-- Stylized Cyber-Eye Almond Contour -->
+  <path d="M 18 60 Q 60 22 102 60" stroke="url(#eyeAmberGrad)" stroke-width="3.6" stroke-linecap="round" fill="none" filter="url(#eyeGlowFilter)" />
+  <path d="M 18 60 Q 60 98 102 60" stroke="url(#eyeAmberGrad)" stroke-width="3.6" stroke-linecap="round" fill="none" filter="url(#eyeGlowFilter)" />
+
+  <!-- Iris Assembly -->
+  <circle cx="60" cy="60" r="21" fill="url(#irisAura)" />
+  <circle cx="60" cy="60" r="20" stroke="url(#eyeCyanGrad)" stroke-width="2" stroke-dasharray="6 3.5" />
+
+  <!-- Iris Aperture Reticle Crosshairs -->
+  <g stroke="#38BDF8" stroke-width="1.4" stroke-linecap="round" stroke-opacity="0.75">
+    <line x1="60" y1="41" x2="60" y2="46" />
+    <line x1="60" y1="74" x2="60" y2="79" />
+    <line x1="41" y1="60" x2="46" y2="60" />
+    <line x1="74" y1="60" x2="79" y2="60" />
+    <line x1="47" y1="47" x2="51" y2="51" />
+    <line x1="69" y1="69" x2="73" y2="73" />
+    <line x1="47" y1="73" x2="51" y2="69" />
+    <line x1="69" y1="51" x2="73" y2="47" />
+  </g>
+
+  <!-- Pupil Core -->
+  <circle cx="60" cy="60" r="11" fill="#0b0e14" />
+  <circle cx="60" cy="60" r="9.5" fill="url(#pupilGlow)" />
+  <circle cx="60" cy="60" r="4" fill="#FFFBEB" />
+
+  <!-- Optical Reflection Glint -->
+  <circle cx="56.5" cy="55.5" r="2" fill="#FFFFFF" opacity="0.95" />
+
+  <!-- Laser Scanning Line -->
+  <line x1="22" y1="60" x2="98" y2="60" stroke="#F59E0B" stroke-width="2" stroke-opacity="0.9" filter="url(#eyeGlowFilter)" />
+</svg>

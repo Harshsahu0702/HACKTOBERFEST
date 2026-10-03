@@ -1,0 +1,112 @@
+# ============================================================
+# .gitignore - SIH Traffic Intelligence
+# ============================================================
+
+# Environment variables & secrets
+.env
+*.env
+!.env.example
+
+# Python virtual environment & cache
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing & Linting
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Node / Frontend dependencies & build artifacts
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+*.local
+
+# IDE & OS files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Heavy Model Weights (>10MB) & Checkpoints
+*.pt
+*.pth
+*.onnx
+*.engine
+*.tflite
+*.bin
+*.weights
+models/*.pt
+models/*.pth
+models/*.onnx
+!models/license_plate.pt
+!yolov8n.pt
+
+# YOLO & Inference output directories (Runs, Detections, Predictions)
+runs/
+runs/**
+runs/detect/
+runs/tracking/
+runs/reid/
+
+# Large Datasets & Raw Video Files (Too large for GitHub)
+dataset/junction_A/*.mp4
+dataset/junction_A/*.avi
+dataset/junction_B/*.mp4
+dataset/junction_B/*.avi
+videos/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+*.flv
+data/processed/
+dataset/grid/
+static/cache/
+
+# Extracted crops & image dumps
+!static/plates/
+!static/plates/*.jpg
+runs/detect/plate_detection/plates/
+
+# Scratch & temporary workspace folders
+scratch/
+tmp/
+temp/
+*.log
+
+# Large archives & SQL backups (Optional: seed/schema scripts are kept in database/)
+*.zip
+*.tar
+*.gz
+*.7z
+*.rar
+database_dump.sql

@@ -1,0 +1,15 @@
+[
+  {
+    "camera_id": "test_cam_01",
+    "junction_id": "junction_A",
+    "vehicle_track_id": 1,
+    "vehicle_type": "car",
+    "timestamp_sec": 0.25,
+    "last_timestamp_sec": 1.0,
+    "duration_sec": 0.75,
+    "observation_count": 4,
+    "plate": null,
+    "has_plate": false,
+    "global_vehicle_id": "test_cam_01_trk1"
+  }
+]

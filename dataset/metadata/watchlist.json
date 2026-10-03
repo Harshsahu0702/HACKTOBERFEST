@@ -1,0 +1,33 @@
+[
+  {
+    "plate": "JH10CS2095",
+    "status": "blacklisted",
+    "reason": "High-frequency cross-corridor transit monitoring",
+    "priority": "MEDIUM",
+    "added_at": "2026-09-10T12:30:00Z",
+    "is_active": true
+  },
+  {
+    "plate": "WB38AP4847",
+    "status": "blacklisted",
+    "reason": "Wanted / suspicious vehicle",
+    "priority": "HIGH",
+    "added_at": "2026-09-10T21:15:56.727120Z",
+    "updated_at": "2026-09-11T18:19:57.427177Z"
+  },
+  {
+    "plate": "JH10DL8792",
+    "status": "blacklisted",
+    "reason": "Wanted / suspicious vehicle",
+    "priority": "HIGH",
+    "added_at": "2026-09-11T18:22:37.410760Z"
+  },
+  {
+    "plate": "WB37E1275",
+    "status": "blacklisted",
+    "reason": "Flagged by Police Control Room (Stolen / Active Hotlist)",
+    "priority": "CRITICAL",
+    "added_at": "2026-09-12T08:00:00Z",
+    "is_active": true
+  }
+]

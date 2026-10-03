@@ -1,0 +1,60 @@
+{
+  "status": "evaluated",
+  "benchmark_name": "DRISHTI High-Precision ANPR & OCR Accuracy Benchmark",
+  "compliance_target": "SIH 2026 Problem 26127 (>90% accuracy across real-world conditions)",
+  "target_met": true,
+  "total_samples": 144,
+  "exact_matches": 141,
+  "incorrect_matches": 3,
+  "exact_match_accuracy_pct": 97.92,
+  "character_level_accuracy_pct": 99.76,
+  "condition_breakdown": {
+    "daylight_clear": {
+      "samples": 29,
+      "exact_matches": 29,
+      "exact_accuracy_pct": 100.0,
+      "character_accuracy_pct": 100.0
+    },
+    "angled_perspective": {
+      "samples": 29,
+      "exact_matches": 29,
+      "exact_accuracy_pct": 100.0,
+      "character_accuracy_pct": 100.0
+    },
+    "motion_blur_moderate": {
+      "samples": 29,
+      "exact_matches": 29,
+      "exact_accuracy_pct": 100.0,
+      "character_accuracy_pct": 100.0
+    },
+    "weather_overcast": {
+      "samples": 29,
+      "exact_matches": 29,
+      "exact_accuracy_pct": 100.0,
+      "character_accuracy_pct": 100.0
+    },
+    "dirty_plate_distorted": {
+      "samples": 28,
+      "exact_matches": 25,
+      "exact_accuracy_pct": 89.29,
+      "character_accuracy_pct": 98.8
+    }
+  },
+  "failures_sample": [
+    {
+      "id": "junction_A_camera_01_trk610_f2630_0071.jpg",
+      "predicted": "MB37C0050",
+      "ground_truth": "MB37CO050"
+    },
+    {
+      "id": "junction_B_camera_01_trk3532_f6740_0143.jpg",
+      "predicted": "WB37D6875",
+      "ground_truth": "W837D6875"
+    },
+    {
+      "id": "junction_B_camera_01_trk4546_f12535_0318.jpg",
+      "predicted": "MB02AL2460",
+      "ground_truth": "MBO2AL2460"
+    }
+  ]
+}

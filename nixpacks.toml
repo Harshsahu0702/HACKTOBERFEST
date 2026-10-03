@@ -1,0 +1,15 @@
+# Railway Nixpacks Configuration for DRISHTI Computer Vision Backend
+[phases.setup]
+nixPkgs = ["glibc", "libGL", "libGLU", "xorg.libxcb", "xorg.libX11", "glib", "ffmpeg"]
+aptPkgs = [
+  "libgl1-mesa-glx",
+  "libgl1",
+  "libglib2.0-0",
+  "libxcb1",
+  "libx11-xcb1",
+  "libxcb-render0",
+  "libxcb-shape0",
+  "libxcb-xfixes0",
+  "libgomp1",
+  "ffmpeg"
+]

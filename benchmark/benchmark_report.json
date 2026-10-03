@@ -1,0 +1,26 @@
+{
+  "benchmark_name": "DRISHTI End-to-End Pipeline Performance Benchmark",
+  "timestamp": "2026-09-12T06:16:15.422235+00:00",
+  "input_video_fps": 29.7,
+  "processing_fps": 1.5,
+  "equivalent_stream_fps": 4.5,
+  "frame_sampling_stride": 3,
+  "processed_frames_sampled": 40,
+  "average_end_to_end_latency_ms": 450.1,
+  "component_latencies_ms": {
+    "yolo_vehicle_detection": 221.0,
+    "bytetrack_association": 0.1,
+    "plate_bounding_box_detection": 202.5,
+    "ocr_preprocessing_and_read": 9.4,
+    "database_persistence_io": 1.2
+  },
+  "system_resources": {
+    "cpu_utilization_pct": 100.0,
+    "ram_used_gb": 7.41,
+    "ram_total_gb": 7.84,
+    "ram_utilization_pct": 94.5,
+    "cuda_available": false,
+    "device_name": "CPU (Optimized SIMD)"
+  },
+  "real_time_capable": false
+}

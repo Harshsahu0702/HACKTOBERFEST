@@ -1,0 +1,102 @@
+{
+  "benchmark_name": "DRISHTI Real ANPR & OCR Accuracy Benchmark",
+  "problem_statement": "SIH 2026 PS 26127 \u2014 Multi-Camera ANPR Trajectory Tracking",
+  "evaluated_at": "2026-09-12T06:15:08.778948+00:00",
+  "total_samples": 144,
+  "exact_matches": 131,
+  "exact_accuracy_pct": 90.97,
+  "character_accuracy_pct": 98.27,
+  "average_confidence_pct": 90.6,
+  "failed_recognitions": 13,
+  "target_accuracy_pct": 90.0,
+  "meets_sih_requirement": true,
+  "execution_time_sec": 0.051,
+  "camera_coverage": [
+    "junction_A_camera_01 (Vivekananda Sarani \u2014 Camera 01)",
+    "junction_A_camera_02 (Vivekananda Sarani \u2014 Camera 02)",
+    "junction_B_camera_01 (Kanyapur Link Road \u2014 Camera 01)",
+    "junction_B_camera_02 (Kanyapur Link Road \u2014 Camera 02)"
+  ],
+  "failures_sample": [
+    {
+      "sample_id": "DET_000047",
+      "camera_id": "junction_A_camera_01",
+      "timestamp_sec": 51.14,
+      "ground_truth": "M7Z00",
+      "predicted": "M7200",
+      "confidence": 0.82
+    },
+    {
+      "sample_id": "DET_000093",
+      "camera_id": "junction_A_camera_01",
+      "timestamp_sec": 105.48,
+      "ground_truth": "0000",
+      "predicted": "OO00",
+      "confidence": 0.82
+    },
+    {
+      "sample_id": "DET_000110",
+      "camera_id": "junction_A_camera_01",
+      "timestamp_sec": 134.93,
+      "ground_truth": "0043",
+      "predicted": "OO43",
+      "confidence": 0.82
+    },
+    {
+      "sample_id": "DET_000322",
+      "camera_id": "junction_A_camera_02",
+      "timestamp_sec": 162.81,
+      "ground_truth": "CCCC000",
+      "predicted": "CCCCOOD",
+      "confidence": 0.82
+    },
+    {
+      "sample_id": "DET_000332",
+      "camera_id": "junction_A_camera_02",
+      "timestamp_sec": 167.99,
+      "ground_truth": "1220",
+      "predicted": "IZ20",
+      "confidence": 0.82
+    },
+    {
+      "sample_id": "DET_000336",
+      "camera_id": "junction_A_camera_02",
+      "timestamp_sec": 169.52,
+      "ground_truth": "GUU5UU0",
+      "predicted": "GUU5UUO",
+      "confidence": 0.8403
+    },
+    {
+      "sample_id": "DET_000415",
+      "camera_id": "junction_B_camera_01",
+      "timestamp_sec": 34.91,
+      "ground_truth": "887855",
+      "predicted": "BB7855",
+      "confidence": 0.8217
+    },
+    {
+      "sample_id": "DET_000582",
+      "camera_id": "junction_B_camera_01",
+      "timestamp_sec": 140.3,
+      "ground_truth": "8942",
+      "predicted": "B942",
+      "confidence": 0.99
+    },
+    {
+      "sample_id": "DET_000610",
+      "camera_id": "junction_B_camera_01",
+      "timestamp_sec": 153.71,
+      "ground_truth": "2000",
+      "predicted": "ZO00",
+      "confidence": 0.82
+    },
+    {
+      "sample_id": "DET_000677",
+      "camera_id": "junction_B_camera_01",
+      "timestamp_sec": 202.45,
+      "ground_truth": "EWB37",
+      "predicted": "EW837",
+      "confidence": 0.82
+    }
+  ]
+}
