@@ -5,11 +5,16 @@
 [![Author: Harsh Sahu](https://img.shields.io/badge/Author-Harsh%20Sahu-blueviolet.svg)](https://github.com/Harshsahu0702)
 [![Hacktoberfest 2026](https://img.shields.io/badge/Hacktoberfest-2026-orange.svg)](https://hacktoberfest.com/)
 [![MLH Hack Day](https://img.shields.io/badge/MLH-Asansol%20x%20Hacktropica-red.svg)](https://mlh.com/)
+[![Live Web App](https://img.shields.io/badge/Live%20Web%20App-Vercel-black?logo=vercel)](https://hacktoberfest-drishti0702.vercel.app)
+[![Cloud Backend](https://img.shields.io/badge/Cloud%20Backend-Railway-0B0D0E?logo=railway)](https://web-production-deb65.up.railway.app)
 [![Model: Gemma 4](https://img.shields.io/badge/Google%20Cloud-Gemma%204%20(26B%20MoE)-8A2BE2.svg)](https://ai.google.dev/gemma)
 [![OCR Accuracy: 90.97%](https://img.shields.io/badge/OCR%20Exact%20Match-90.97%25-brightgreen.svg)](evaluation/)
 
 **Official Submission for Hacktoberfest Hack Day: Asansol × Hacktropica (Major League Hacking)**  
-*Challenge: Best Use of Gemma 4 (Google Cloud)*
+*Challenge Track: Best Use of Gemma 4 (Google Cloud)*
+
+- 🌐 **Live Web Application:** [https://hacktoberfest-drishti0702.vercel.app](https://hacktoberfest-drishti0702.vercel.app)
+- ⚙️ **Production REST API:** [https://web-production-deb65.up.railway.app](https://web-production-deb65.up.railway.app)
 
 ---
 
@@ -19,7 +24,7 @@
 
 Built directly on real 1080p CCTV footage captured across the arterial corridors of **Asansol, West Bengal** (**Junction A: Vivekananda Sarani** and **Junction B: Kanyapur Link Road**), DRISHTI pairs YOLOv8/11 vehicle detection and 90.97% accurate PaddleOCR with Google's natively multimodal **Gemma 4** (`gemma-4-26b-a4b-it`).
 
-$$\text{Computer Vision} + \text{ANPR/OCR} + \text{Trajectory Tracking} + \textbf{Gemma 4 Reasoning} = \textbf{Explainable Traffic Intelligence}$$
+$$\text{Computer Vision} + \text{ANPR/OCR} + \text{Telemetry} + \textbf{Google Gemma 4 Reasoning} = \textbf{Explainable Traffic Intelligence}$$
 
 ```
                            CCTV VIDEO STREAMS (4 Asansol Nodes)
@@ -39,16 +44,10 @@ $$\text{Computer Vision} + \text{ANPR/OCR} + \text{Trajectory Tracking} + \textb
                            (408.4m Arterial Corridor Transit)
                                            │
                                            ▼
-                               Deterministic Anomaly Engine
-                           (Simultaneous Sightings & Speed Skew)
-                                           │
-                                           ▼
                      ★ GOOGLE CLOUD GEMMA 4 MULTIMODAL LAYER ★
                           (gemma-4-26b-a4b-it via Gemini API)
-                   ├── 1. Multimodal Scene Understanding (Vision + Telemetry)
-                   ├── 2. Forensic Incident Root-Cause Explainer
-                   ├── 3. Grounded "Ask DRISHTI" Operator Terminal
-                   └── 4. One-Click Executive Traffic Intelligence Reports
+                   ├── 1. Multimodal Scene Understanding (CCTV Vision + Telemetry)
+                   └── 2. Custom Traffic Frame Inspector (Upload + Vision Reasoning)
                                            │
                                            ▼
                              React 19 + Cyber HUD Command Deck
@@ -58,35 +57,31 @@ $$\text{Computer Vision} + \text{ANPR/OCR} + \text{Trajectory Tracking} + \textb
 
 ## 💡 Why Gemma 4?
 
-Gemma 4 is not a cosmetic chatbot in DRISHTI — it is the **cognitive decision engine**:
+Google Cloud's **Gemma 4** (`gemma-4-26b-a4b-it`) serves as the **core cognitive decision engine** in DRISHTI, moving beyond simple classification into nuanced, human-level situational reasoning:
 
-1. **Native Multimodality (Vision + Text):** Gemma 4 ingests live 1080p camera frames (JPEG) together with YOLO bounding box coordinates to reason about traffic density, queue spillovers, and lane blockages simultaneously.
-2. **High Intelligence-per-Parameter (26B MoE with 4B Active):** Provides sub-2-second inference latency, essential for operational traffic command centers.
-3. **Deterministic Grounding & Schema Adherence:** Operating under strict system instruction harnesses, Gemma 4 outputs structured JSON conforming to legal schemas without fabricating plate identities or non-existent incidents.
-4. **State-of-the-Art Architecture:** Ensures real-time edge and server deployment with high efficiency and robust reasoning capabilities.
+1. **Native Multimodality (Vision + Ground-Truth Telemetry):** Gemma 4 directly ingests high-definition CCTV frames (JPEG) simultaneously with verified bounding box telemetry, number plate readings, and temporal bookmarks to reason about congestion density, lane utilization, and safety hazards in one pass.
+2. **High Intelligence-per-Parameter (26B MoE with 4B Active):** Delivers deep cognitive reasoning at blazing speeds with sub-2-second cloud inference latency, ideal for real-time traffic monitoring consoles.
+3. **Strict Schema Adherence:** Governed by specialized prompt harnesses, Gemma 4 outputs deterministic, structured JSON with zero hallucinated plate identities.
+4. **Generalization to Unseen Roadways:** In the Custom Frame Inspector, Gemma 4 instantly understands arbitrary traffic scenes — identifying pedestrians, vulnerable cyclists, auto-rickshaws, and signal countdowns without task-specific retraining.
 
 ---
 
-## 🌟 Key Capabilities
+## 🌟 Key Gemma 4 Multimodal Capabilities
 
-### 1. Multimodal Traffic Scene Understanding
-- Ingests visual CCTV frames alongside detector telemetry (`car: 4, motorcycle: 2`).
-- Automatically categorizes Relative Congestion Index (RCI) and identifies lane occupancy and directional flow.
+### 1. Multimodal CCTV Traffic Scene Understanding
+- Ingests synchronized 1080p CCTV snapshots across 4 cameras between Vivekananda Sarani and Kanyapur Link Road.
+- Combines visual pixels with live database telemetry (`detected_plates`, vehicle classes, bounding box densities).
+- Automatically categorizes congestion level (`LOW`, `MODERATE`, `HIGH`, `SEVERE`), evaluates lane discipline, identifies roadway hazards, and provides clarity assessments.
+- Quick-jump timeline bookmarks allow instant navigation across key traffic sightings.
 
-### 2. Forensic Incident Explanation
-- Translates raw kinematic anomalies (e.g., vehicle sighted at Junction A and Junction B within 0.3 seconds across 408m) into plain English forensic explanations.
-- Diagnoses **cloned license plate fraud** and recommends law enforcement interception vectors.
-- Section 65B Indian Evidence Act certified with SHA-256 tamper-evident frame hashes.
-
-### 3. Grounded "Ask DRISHTI" Operator Terminal
-- Natural-language Q&A interface strictly grounded in DRISHTI's relational MySQL database.
-- Answers questions about corridor speed, busiest nodes, and active threats with zero hallucination.
-
-### 4. One-Click Executive AI Reports
-- Synthesizes corridor mobility matrices, peak congestion intervals, and traffic violations into official, printable Markdown and PDF dossiers.
-
-### 5. Custom Traffic Frame Inspector
-- Allows operators to upload arbitrary traffic photos from smartphones or external CCTV feeds for instant multimodal breakdown.
+### 2. Custom Traffic Frame Inspector
+- Allows operators to upload arbitrary traffic photos from smartphones, external CCTV nodes, dashcams, or road surveys.
+- Features a real-time **cyberpunk laser scanline overlay** and animated **multimodal reasoning radar checklist** during analysis.
+- Gemma 4 analyzes the frame to provide:
+  - **Scene Description**: Detailed breakdown of roadway, pedestrian crossings, signal timers, and vehicle compositions.
+  - **Apparent Traffic Density**: Categorization of corridor capacity.
+  - **Road & Environmental Conditions**: Surface status, lighting, weather, and visibility.
+  - **Actionable Insights**: Specific situational recommendations for traffic safety and hazard prevention.
 
 ---
 
@@ -155,7 +150,7 @@ npm run dev
 ```
 Open browser at: `http://localhost:5173/`
 
-Navigate to the **"AI Intelligence [GEMMA 4]"** tab to explore multimodal scene reasoning, incident explanations, and report generation.
+Navigate to the **"AI Intelligence [GEMMA 4]"** tab to explore real-time multimodal scene reasoning across synchronized CCTV nodes and inspect custom traffic frames.
 
 ---
 
