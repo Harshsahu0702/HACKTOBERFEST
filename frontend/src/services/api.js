@@ -19,18 +19,28 @@
  * 4. Production fallback: "" (relative request)
  */
 export function getApiBase() {
+  const ensureProtocol = (raw) => {
+    if (!raw || typeof raw !== "string") return "";
+    let clean = raw.trim().replace(/\/+$/, "");
+    if (!clean) return "";
+    if (clean.startsWith("http://") || clean.startsWith("https://")) {
+      return clean;
+    }
+    return `https://${clean}`;
+  };
+
   if (typeof window !== "undefined") {
     try {
       const stored = localStorage.getItem("DRISHTI_BACKEND_URL");
       if (stored && stored.trim()) {
-        return stored.trim().replace(/\/+$/, "");
+        return ensureProtocol(stored);
       }
     } catch (_) {}
   }
 
   const envUrl = import.meta.env.VITE_API_BASE_URL;
   if (envUrl && typeof envUrl === "string" && envUrl.trim()) {
-    return envUrl.trim().replace(/\/+$/, "");
+    return ensureProtocol(envUrl);
   }
 
   if (typeof window !== "undefined" && window.location) {
