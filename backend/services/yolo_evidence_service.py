@@ -13,7 +13,10 @@ import json
 import logging
 from pathlib import Path
 from typing import Dict, Any, List, Optional
-from ultralytics import YOLO
+try:
+    from ultralytics import YOLO
+except Exception as _e:
+    YOLO = None
 
 logger = logging.getLogger("drishti.yolo_evidence")
 
@@ -21,18 +24,24 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 TRACKS_CACHE_DIR = PROJECT_ROOT / "static" / "cache" / "tracks"
 TRACKS_CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-_yolo_model_singleton: Optional[YOLO] = None
+_yolo_model_singleton: Optional[Any] = None
 
 
-def get_yolo_model() -> YOLO:
+def get_yolo_model() -> Optional[Any]:
     """Lazy-load the YOLO singleton model into memory."""
     global _yolo_model_singleton
+    if YOLO is None:
+        return None
     if _yolo_model_singleton is None:
         model_path = PROJECT_ROOT / "models" / "yolo11n.pt"
         if not model_path.exists():
             model_path = PROJECT_ROOT / "yolov8n.pt"
         logger.info(f"Loading YOLO model for evidence tracking: {model_path}")
-        _yolo_model_singleton = YOLO(str(model_path))
+        try:
+            _yolo_model_singleton = YOLO(str(model_path))
+        except Exception as exc:
+            logger.warning(f"Could not load YOLO model: {exc}")
+            return None
     return _yolo_model_singleton
 
 

@@ -43,7 +43,6 @@ from backend.services.dataset_service import get_cameras_dict, load_detections, 
 from backend.services.analytics_engine import analytics_engine
 from backend.services.anomaly_service import anomaly_engine
 from backend.services.plate_search_service import search_by_plate
-from backend.services.yolo_evidence_service import get_or_create_evidence_yolo_tracks
 
 
 # =============================================================================
@@ -673,21 +672,11 @@ Respond in strictly valid JSON:
         Returns (base64_string, url_path).
         """
         norm_id = normalize_camera_id(camera_id)
-        cameras = get_cameras_dict()
-        cam = cameras.get(norm_id) or cameras.get(camera_id) or {}
-        video_rel = cam.get("video_path")
-        if not video_rel:
-            return None, None
-
-        video_path = PROJECT_ROOT / video_rel
-        if not video_path.exists():
-            return None, None
-
         keyframe_filename = f"{norm_id}_t{int(round(timestamp_sec))}.jpg"
         keyframe_disk_path = KEYFRAMES_DIR / keyframe_filename
         keyframe_url = f"/api/ai/keyframes/{keyframe_filename}"
 
-        # If already cached on disk, read directly
+        # 1. If exact cached keyframe exists on disk, read directly (< 5ms)
         if keyframe_disk_path.exists() and keyframe_disk_path.stat().st_size > 1024:
             try:
                 with open(keyframe_disk_path, "rb") as kf:
@@ -696,8 +685,39 @@ Respond in strictly valid JSON:
             except Exception:
                 pass
 
-        # Extract frame via OpenCV
+        # 2. Check for nearest timestamp keyframe in KEYFRAMES_DIR
+        try:
+            candidates = []
+            cam_prefix = norm_id.lower()
+            for f in KEYFRAMES_DIR.glob("*.jpg"):
+                parts = f.name.rsplit("_t", 1)
+                if len(parts) == 2 and parts[0].lower() == cam_prefix:
+                    try:
+                        f_sec = float(parts[1].replace(".jpg", "").replace(".jpeg", ""))
+                        candidates.append((abs(f_sec - timestamp_sec), f))
+                    except Exception:
+                        continue
+            if candidates:
+                candidates.sort(key=lambda x: x[0])
+                best_file = candidates[0][1]
+                with open(best_file, "rb") as kf:
+                    b64 = base64.b64encode(kf.read()).decode("utf-8")
+                return b64, f"/api/ai/keyframes/{best_file.name}"
+        except Exception:
+            pass
+
+        # 3. Dynamic OpenCV extraction if video exists locally
         if not cv2:
+            return None, None
+
+        cameras = get_cameras_dict()
+        cam = cameras.get(norm_id) or cameras.get(camera_id) or {}
+        video_rel = cam.get("video_path")
+        if not video_rel:
+            return None, None
+
+        video_path = PROJECT_ROOT / video_rel
+        if not video_path.exists():
             return None, None
 
         try:
