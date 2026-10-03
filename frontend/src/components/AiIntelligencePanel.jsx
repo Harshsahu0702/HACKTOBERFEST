@@ -121,6 +121,7 @@ export function AiIntelligencePanel({ onSelectVehicle, onFocusCamera }) {
   const [uploadBase64, setUploadBase64] = useState(null);
   const [uploadLoading, setUploadLoading] = useState(false);
   const [uploadResult, setUploadResult] = useState(null);
+  const [uploadError, setUploadError] = useState(null);
 
   const handleFileUpload = (e) => {
     const file = e.target.files?.[0];
@@ -129,17 +130,25 @@ export function AiIntelligencePanel({ onSelectVehicle, onFocusCamera }) {
     reader.onload = async (ev) => {
       const b64 = ev.target.result;
       setUploadBase64(b64);
+      setUploadResult(null);
+      setUploadError(null);
       setUploadLoading(true);
       try {
         const res = await api.inspectUploadedFrame({ image_base64: b64 });
-        setUploadResult(res?.analysis || null);
+        if (res?.analysis) {
+          setUploadResult(res.analysis);
+        } else if (res?.error) {
+          setUploadError(res.error);
+        }
       } catch (err) {
         console.error("Upload error:", err);
+        setUploadError(err.message || "Failed to inspect uploaded frame");
       } finally {
         setUploadLoading(false);
       }
     };
     reader.readAsDataURL(file);
+    e.target.value = "";
   };
 
   return (
@@ -509,8 +518,17 @@ export function AiIntelligencePanel({ onSelectVehicle, onFocusCamera }) {
             </div>
 
             {uploadBase64 && (
-              <div className="ai-frame-viewer" style={{ minHeight: "220px" }}>
+              <div className="ai-frame-viewer" style={{ minHeight: "220px", position: "relative" }}>
                 <img src={uploadBase64} alt="Uploaded Frame" className="ai-frame-img" />
+                {uploadLoading && (
+                  <div className="ai-upload-scan-overlay">
+                    <div className="ai-upload-scanner-line" />
+                    <div className="ai-upload-scan-badge">
+                      <RefreshCw size={13} className="animate-spin" />
+                      <span>ANALYZING IMAGE WITH GEMMA 4 MULTIMODAL...</span>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -521,12 +539,51 @@ export function AiIntelligencePanel({ onSelectVehicle, onFocusCamera }) {
                 <Sparkles size={16} style={{ color: "#38bdf8" }} />
                 Gemma 4 Multimodal Analysis Output
               </span>
+              {uploadLoading && (
+                <span className="ai-badge ai-badge-gemma" style={{ animation: "pulseSlow 1.5s infinite" }}>
+                  <RefreshCw size={11} className="animate-spin" />
+                  REASONING ACTIVE
+                </span>
+              )}
             </div>
 
             {uploadLoading ? (
-              <div style={{ padding: "40px", textAlign: "center", color: "#94a3b8" }}>
-                <RefreshCw size={28} className="animate-spin" style={{ color: "#38bdf8", margin: "0 auto 12px" }} />
-                <div>Gemma 4 is reading pixels, vehicles, and roadway context...</div>
+              <div className="ai-multimodal-loader-box">
+                <div className="ai-loader-radar-wrapper">
+                  <div className="ai-loader-pulse-ring" />
+                  <div className="ai-loader-pulse-ring delay-1" />
+                  <div className="ai-loader-center-icon">
+                    <Sparkles size={24} className="animate-pulse" style={{ color: "#38bdf8" }} />
+                  </div>
+                </div>
+
+                <div className="ai-loader-title">
+                  <RefreshCw size={16} className="animate-spin" style={{ color: "#38bdf8" }} />
+                  Gemma 4 Vision-Language Reasoning in Progress
+                </div>
+
+                <div className="ai-loader-subtitle">
+                  Ingesting image tensors and analyzing road context, vehicles, and density...
+                </div>
+
+                <div className="ai-loader-progress-track">
+                  <div className="ai-loader-progress-bar" />
+                </div>
+
+                <div className="ai-loader-steps">
+                  <div className="ai-loader-step done">
+                    <CheckCircle size={14} style={{ color: "#10b981", flexShrink: 0 }} />
+                    <span>Image Frame Received & Base64 Encoded</span>
+                  </div>
+                  <div className="ai-loader-step active">
+                    <RefreshCw size={14} className="animate-spin" style={{ color: "#0284c7", flexShrink: 0 }} />
+                    <span>Multimodal Spatial & Scene Reasoning Active...</span>
+                  </div>
+                  <div className="ai-loader-step pending">
+                    <div className="ai-loader-step-dot" style={{ flexShrink: 0 }} />
+                    <span>Synthesizing Forensic Roadway Insights</span>
+                  </div>
+                </div>
               </div>
             ) : uploadResult ? (
               <div className="ai-result-section">
@@ -555,6 +612,13 @@ export function AiIntelligencePanel({ onSelectVehicle, onFocusCamera }) {
                     </ul>
                   </div>
                 )}
+              </div>
+            ) : uploadError ? (
+              <div style={{ padding: "40px", textAlign: "center", color: "#ef4444" }}>
+                <div>Analysis notice: {uploadError}</div>
+                <div style={{ fontSize: "12px", color: "#64748b", marginTop: "8px" }}>
+                  Please try re-uploading or choose another traffic image.
+                </div>
               </div>
             ) : (
               <div style={{ padding: "40px", textAlign: "center", color: "#94a3b8" }}>

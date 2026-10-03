@@ -912,3 +912,239 @@
   border-radius: 6px;
   overflow-x: auto;
 }
+
+/* ==========================================================================
+   9. CUSTOM FRAME INSPECTOR & MULTIMODAL LOADING ANIMATIONS
+   ========================================================================== */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite !important;
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.75;
+  }
+}
+
+.animate-pulse {
+  animation: pulseSlow 2s ease-in-out infinite;
+}
+
+@keyframes scanlineMove {
+  0% {
+    top: 0%;
+    opacity: 0.9;
+  }
+  50% {
+    top: 96%;
+    opacity: 1;
+  }
+  100% {
+    top: 0%;
+    opacity: 0.9;
+  }
+}
+
+.ai-upload-scan-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(1.5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.ai-upload-scanner-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #38bdf8, #818cf8, #38bdf8, transparent);
+  box-shadow: 0 0 16px #38bdf8, 0 0 32px #38bdf8;
+  animation: scanlineMove 2.5s ease-in-out infinite;
+}
+
+.ai-upload-scan-badge {
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(56, 189, 248, 0.55);
+  color: #38bdf8;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.ai-multimodal-loader-box {
+  padding: 36px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(248, 250, 252, 0.6);
+  border-radius: 8px;
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+}
+
+.ai-loader-radar-wrapper {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+@keyframes radarPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.ai-loader-pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #38bdf8;
+  animation: radarPulse 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.ai-loader-pulse-ring.delay-1 {
+  animation-delay: 1s;
+}
+
+.ai-loader-center-icon {
+  position: relative;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-loader-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.ai-loader-subtitle {
+  font-size: 12px;
+  color: #64748b;
+  max-width: 400px;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.ai-loader-progress-track {
+  width: 100%;
+  max-width: 360px;
+  height: 5px;
+  background: rgba(226, 232, 240, 0.8);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+@keyframes progressSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(30%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.ai-loader-progress-bar {
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #6366f1, #38bdf8);
+  border-radius: 999px;
+  animation: progressSlide 2s ease-in-out infinite;
+}
+
+.ai-loader-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  width: 100%;
+  max-width: 360px;
+  font-size: 11px;
+}
+
+.ai-loader-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.ai-loader-step.done {
+  color: #065f46;
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+.ai-loader-step.active {
+  color: #0284c7;
+  border-color: #bae6fd;
+  background: #f0f9ff;
+  font-weight: 600;
+}
+
+.ai-loader-step.pending {
+  color: #94a3b8;
+}
+
+.ai-loader-step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  margin: 0 3px;
+}
