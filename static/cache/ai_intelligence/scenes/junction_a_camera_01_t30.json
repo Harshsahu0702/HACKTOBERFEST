@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "camera_id": "junction_A_camera_01",
+  "camera_name": "Junction A \u2014 Camera 01 (Inbound Entry)",
+  "junction_name": "Junction A \u2014 South Gate Quad",
+  "timestamp_sec": 30.0,
+  "keyframe_url": "/api/ai/keyframes/junction_A_camera_01_t30.jpg",
+  "cv_telemetry": {
+    "total_vehicles": 6,
+    "class_breakdown": {
+      "motorcycle": 2,
+      "car": 3,
+      "truck": 1
+    },
+    "density_rating": "Moderate",
+    "sample_window_sec": 3.0
+  },
+  "analysis": {
+    "overview": "The inbound entry at Junction A shows steady, free-flowing traffic consisting of a mix of motorcycles and larger vehicles. The current flow is unimpeded with no visible signs of queuing or significant buildup.",
+    "congestion_level": "LOW",
+    "lane_observations": "Motorcycles are actively maneuvering through the lanes, while cars and a truck are distributed further back in the traffic stream. Vehicles are maintaining adequate spacing, and the wide roadway allows for easy lateral movement.",
+    "anomalies_or_hazards": "The roadway surface shows a visible accumulation of dust and fine debris, which may present a minor traction hazard for two-wheeled vehicles.",
+    "confidence_assessment": "High confidence. Visual clarity is sufficient for accurate vehicle classification, although a slight atmospheric haze is present. Telemetry data aligns with the observed vehicle distribution."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791010388.397899
+}

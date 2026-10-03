@@ -1882,44 +1882,80 @@ def ai_camera_landmarks(camera_id: str = Query("junction_A_camera_01")):
 @app.get("/static/cache/keyframes/{image_name:path}")
 @app.get("/api/ai/keyframes/{image_name:path}")
 def get_keyframe_image(image_name: str):
-    """Serve cached high-definition camera keyframes with dynamic fallback."""
-    from backend.services.gemma_intelligence_service import KEYFRAMES_DIR, GemmaIntelligenceService
-    clean_name = Path(image_name).name
-    path = KEYFRAMES_DIR / clean_name
-    if path.exists() and path.stat().st_size > 0:
-        return FileResponse(path, media_type="image/jpeg")
-
-    # 1. Case-insensitive lookup
-    target_lower = clean_name.lower()
-    for f in KEYFRAMES_DIR.glob("*.jpg"):
-        if f.name.lower() == target_lower and f.stat().st_size > 0:
-            return FileResponse(f, media_type="image/jpeg")
-
-    # 2. Dynamic on-the-fly extraction if pattern matches <cam_id>_t<sec>
+    """Serve cached high-definition camera keyframes with dynamic fallback and nearest-timestamp lookup."""
     try:
+        keyframes_dir = PROJECT_ROOT / "static" / "cache" / "keyframes"
+        clean_name = Path(image_name).name
+        exact_path = keyframes_dir / clean_name
+        if exact_path.exists() and exact_path.stat().st_size > 0:
+            return FileResponse(exact_path, media_type="image/jpeg")
+
+        # 1. Case-insensitive lookup
+        target_lower = clean_name.lower()
+        if keyframes_dir.exists():
+            for f in keyframes_dir.glob("*.jpg"):
+                if f.name.lower() == target_lower and f.stat().st_size > 0:
+                    return FileResponse(f, media_type="image/jpeg")
+
+        # 2. Nearest timestamp lookup for the requested camera
         parts = clean_name.rsplit("_t", 1)
-        if len(parts) == 2:
-            cam_prefix = parts[0]
-            sec_str = parts[1].replace(".jpg", "").replace(".jpeg", "")
-            t_sec = float(sec_str)
-            _, key_url = GemmaIntelligenceService._extract_camera_frame(cam_prefix, t_sec)
-            extracted_path = KEYFRAMES_DIR / clean_name
-            if extracted_path.exists():
-                return FileResponse(extracted_path, media_type="image/jpeg")
-    except Exception:
-        pass
+        if len(parts) == 2 and keyframes_dir.exists():
+            cam_prefix = parts[0].lower()
+            sec_part = parts[1].replace(".jpg", "").replace(".jpeg", "")
+            try:
+                req_t = float(sec_part)
+                candidates = []
+                for f in keyframes_dir.glob("*.jpg"):
+                    f_parts = f.name.rsplit("_t", 1)
+                    if len(f_parts) == 2 and f_parts[0].lower() == cam_prefix:
+                        try:
+                            f_sec = float(f_parts[1].replace(".jpg", "").replace(".jpeg", ""))
+                            candidates.append((abs(f_sec - req_t), f))
+                        except Exception:
+                            continue
+                if candidates:
+                    candidates.sort(key=lambda x: x[0])
+                    return FileResponse(candidates[0][1], media_type="image/jpeg")
+            except Exception:
+                pass
 
-    # 3. Fallback to plate crop
-    fallback_path = STATIC_PLATES_DIR / clean_name
-    if fallback_path.exists():
-        return FileResponse(fallback_path, media_type="image/jpeg")
+        # 3. Dynamic on-the-fly extraction if video and OpenCV are present
+        try:
+            from backend.services.gemma_intelligence_service import GemmaIntelligenceService
+            if len(parts) == 2:
+                cam_id = parts[0]
+                sec_str = parts[1].replace(".jpg", "").replace(".jpeg", "")
+                t_sec = float(sec_str)
+                _, key_url = GemmaIntelligenceService._extract_camera_frame(cam_id, t_sec)
+                extracted_path = keyframes_dir / clean_name
+                if extracted_path.exists() and extracted_path.stat().st_size > 0:
+                    return FileResponse(extracted_path, media_type="image/jpeg")
+        except Exception:
+            pass
 
-    # 4. Ultimate fallback to sample plate
-    sample_plate = STATIC_PLATES_DIR / "DET_000014.jpg"
-    if sample_plate.exists():
-        return FileResponse(sample_plate, media_type="image/jpeg")
+        # 4. Fallback to any keyframe in cache
+        if keyframes_dir.exists():
+            for f in keyframes_dir.glob("*.jpg"):
+                if f.stat().st_size > 0:
+                    return FileResponse(f, media_type="image/jpeg")
 
-    raise HTTPException(status_code=404, detail="Keyframe image not found")
+        # 5. Fallback to plate crop
+        fallback_path = STATIC_PLATES_DIR / clean_name
+        if fallback_path.exists():
+            return FileResponse(fallback_path, media_type="image/jpeg")
+
+        sample_plate = STATIC_PLATES_DIR / "DET_000014.jpg"
+        if sample_plate.exists():
+            return FileResponse(sample_plate, media_type="image/jpeg")
+
+        raise HTTPException(status_code=404, detail="Keyframe image not found")
+    except HTTPException:
+        raise
+    except Exception as exc:
+        sample_plate = STATIC_PLATES_DIR / "DET_000014.jpg"
+        if sample_plate.exists():
+            return FileResponse(sample_plate, media_type="image/jpeg")
+        raise HTTPException(status_code=404, detail=f"Keyframe resolution error: {exc}")
 
 
 # ============================================================

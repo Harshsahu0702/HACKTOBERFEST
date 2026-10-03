@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "camera_id": "junction_A_camera_01",
+  "camera_name": "Junction A \u2014 Camera 01 (Inbound Entry)",
+  "junction_name": "Junction A \u2014 South Gate Quad",
+  "timestamp_sec": 180.0,
+  "keyframe_url": "/api/ai/keyframes/junction_A_camera_01_t180.jpg",
+  "cv_telemetry": {
+    "total_vehicles": 5,
+    "class_breakdown": {
+      "car": 4,
+      "truck": 1
+    },
+    "density_rating": "Moderate",
+    "sample_window_sec": 3.0
+  },
+  "analysis": {
+    "overview": "The inbound entry at Junction A shows light traffic flow with a mix of passenger vehicles and a heavy vehicle. Traffic is moving steadily with significant headway between detected units.",
+    "congestion_level": "LOW",
+    "lane_observations": "Vehicles are utilizing the primary inbound lanes, with a passenger car and a truck visible in the mid-to-far distance. A cyclist is operating on the far right edge of the roadway, indicating mixed-mode traffic usage.",
+    "anomalies_or_hazards": "None. The roadway is clear of stationary obstructions or queue spills.",
+    "confidence_assessment": "High. Daylight conditions provide sufficient visibility, though slight atmospheric haze is present. Computer vision telemetry aligns with visual evidence of low vehicle density."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791011572.2437265
+}

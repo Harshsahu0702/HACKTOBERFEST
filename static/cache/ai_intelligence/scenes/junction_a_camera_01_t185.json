@@ -1,0 +1,105 @@
+{
+  "success": true,
+  "camera_id": "junction_A_camera_01",
+  "camera_name": "Junction A \u2014 Camera 01 (Inbound Entry)",
+  "junction_name": "Junction A \u2014 South Gate Quad",
+  "timestamp_sec": 185.0,
+  "keyframe_url": "/api/ai/keyframes/junction_A_camera_01_t185.jpg",
+  "cv_telemetry": {
+    "camera_id": "junction_A_camera_01",
+    "timestamp_sec": 185.0,
+    "total_vehicles": 11,
+    "detected_plates": [
+      {
+        "plate": "HB38AR3054",
+        "normalized_plate": "HB38AR3054",
+        "vehicle_type": "car",
+        "confidence": 0.92,
+        "timestamp_sec": 182.5,
+        "is_blacklisted": false,
+        "plate_image_url": "/api/plates/junction_A_camera_01_trk1192_f5425_0153.jpg"
+      },
+      {
+        "plate": "WB37D7087",
+        "normalized_plate": "WB37D7087",
+        "vehicle_type": "truck",
+        "confidence": 0.94,
+        "timestamp_sec": 184.4,
+        "is_blacklisted": false,
+        "plate_image_url": "/api/plates/junction_A_camera_01_trk1231_f5480_0161.jpg"
+      },
+      {
+        "plate": "EZ301542",
+        "normalized_plate": "EZ301542",
+        "vehicle_type": "motorcycle",
+        "confidence": 0.56,
+        "timestamp_sec": 187.1,
+        "is_blacklisted": false,
+        "plate_image_url": "/api/plates/junction_A_camera_01_trk1233_f5560_0166.jpg"
+      },
+      {
+        "plate": "KB39B1544",
+        "normalized_plate": "KB39B1544",
+        "vehicle_type": "truck",
+        "confidence": 0.91,
+        "timestamp_sec": 187.8,
+        "is_blacklisted": false,
+        "plate_image_url": "/api/plates/junction_A_camera_01_trk1242_f5580_0170.jpg"
+      }
+    ],
+    "class_breakdown": {
+      "car": 5,
+      "truck": 8,
+      "motorcycle": 2
+    },
+    "density_rating": "High",
+    "sample_window_sec": 3.0
+  },
+  "detected_plates": [
+    {
+      "plate": "HB38AR3054",
+      "normalized_plate": "HB38AR3054",
+      "vehicle_type": "car",
+      "confidence": 0.92,
+      "timestamp_sec": 182.5,
+      "is_blacklisted": false,
+      "plate_image_url": "/api/plates/junction_A_camera_01_trk1192_f5425_0153.jpg"
+    },
+    {
+      "plate": "WB37D7087",
+      "normalized_plate": "WB37D7087",
+      "vehicle_type": "truck",
+      "confidence": 0.94,
+      "timestamp_sec": 184.4,
+      "is_blacklisted": false,
+      "plate_image_url": "/api/plates/junction_A_camera_01_trk1231_f5480_0161.jpg"
+    },
+    {
+      "plate": "EZ301542",
+      "normalized_plate": "EZ301542",
+      "vehicle_type": "motorcycle",
+      "confidence": 0.56,
+      "timestamp_sec": 187.1,
+      "is_blacklisted": false,
+      "plate_image_url": "/api/plates/junction_A_camera_01_trk1233_f5560_0166.jpg"
+    },
+    {
+      "plate": "KB39B1544",
+      "normalized_plate": "KB39B1544",
+      "vehicle_type": "truck",
+      "confidence": 0.91,
+      "timestamp_sec": 187.8,
+      "is_blacklisted": false,
+      "plate_image_url": "/api/plates/junction_A_camera_01_trk1242_f5580_0170.jpg"
+    }
+  ],
+  "analysis": {
+    "overview": "The scene shows moderate inbound traffic flow at Junction A with a mix of passenger vehicles and motorcycles. While the road width is sufficient, the presence of heavy vehicles and motorcycles indicates a diverse traffic composition.",
+    "congestion_level": "MODERATE",
+    "lane_observations": "Vehicles are primarily utilizing the central and left-side lanes for inbound movement. A motorcycle with two occupants is positioned in the foreground, while a white SUV and other vehicles are spaced out in the background, suggesting steady but non-fluid movement.",
+    "anomalies_or_hazards": "No immediate collisions or roadway obstructions are visible, though the presence of a motorcycle with two passengers requires monitoring for lane stability.",
+    "confidence_assessment": "High confidence in vehicle detection and classification due to clear daylight visibility and minimal obstruction, although license plate legibility for distant vehicles is limited by resolution."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791014719.8176777
+}

@@ -1,0 +1,69 @@
+{
+  "success": true,
+  "camera_id": "junction_A_camera_01",
+  "camera_name": "Junction A \u2014 Camera 01 (Inbound Entry)",
+  "junction_name": "Junction A \u2014 South Gate Quad",
+  "timestamp_sec": 160.0,
+  "keyframe_url": "/api/ai/keyframes/junction_A_camera_01_t160.jpg",
+  "cv_telemetry": {
+    "camera_id": "junction_A_camera_01",
+    "timestamp_sec": 160.0,
+    "total_vehicles": 13,
+    "detected_plates": [
+      {
+        "plate": "VB301C5426",
+        "normalized_plate": "VB301C5426",
+        "vehicle_type": "car",
+        "confidence": 0.82,
+        "timestamp_sec": 159.8,
+        "is_blacklisted": false,
+        "plate_image_url": "/api/plates/junction_A_camera_01_trk980_f4750_0105.jpg"
+      },
+      {
+        "plate": "MB38AZ4327",
+        "normalized_plate": "MB38AZ4327",
+        "vehicle_type": "car",
+        "confidence": 0.91,
+        "timestamp_sec": 161.5,
+        "is_blacklisted": false,
+        "plate_image_url": "/api/plates/junction_A_camera_01_trk1035_f4800_0111.jpg"
+      }
+    ],
+    "class_breakdown": {
+      "car": 6,
+      "motorcycle": 8,
+      "truck": 1
+    },
+    "density_rating": "High",
+    "sample_window_sec": 3.0
+  },
+  "detected_plates": [
+    {
+      "plate": "VB301C5426",
+      "normalized_plate": "VB301C5426",
+      "vehicle_type": "car",
+      "confidence": 0.82,
+      "timestamp_sec": 159.8,
+      "is_blacklisted": false,
+      "plate_image_url": "/api/plates/junction_A_camera_01_trk980_f4750_0105.jpg"
+    },
+    {
+      "plate": "MB38AZ4327",
+      "normalized_plate": "MB38AZ4327",
+      "vehicle_type": "car",
+      "confidence": 0.91,
+      "timestamp_sec": 161.5,
+      "is_blacklisted": false,
+      "plate_image_url": "/api/plates/junction_A_camera_01_trk1035_f4800_0111.jpg"
+    }
+  ],
+  "analysis": {
+    "overview": "The inbound entry at Junction A shows moderate vehicle activity with a mix of passenger cars and motorcycles. Traffic is moving steadily in the primary direction of travel with no immediate signs of gridlock.",
+    "congestion_level": "MODERATE",
+    "lane_observations": "Vehicles are utilizing the available roadway with motorcycles filtering between cars. A dark-colored car is leading the immediate foreground, followed by motorcycles and another car in the distance, indicating a steady flow of inbound traffic.",
+    "anomalies_or_hazards": "None detected; the roadway appears clear of obstructions, though the presence of motorcycles in close proximity to larger vehicles requires continuous monitoring.",
+    "confidence_assessment": "High confidence. Visual clarity is good under daylight conditions, allowing for clear identification of vehicle types and license plates (e.g., WB38IG5426 visible on the lead car), matching the CV telemetry."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791015006.0401304
+}

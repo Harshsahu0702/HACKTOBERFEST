@@ -1,0 +1,47 @@
+{
+  "success": true,
+  "camera_id": "junction_A_camera_01",
+  "camera_name": "Junction A \u2014 Camera 01 (Inbound Entry)",
+  "junction_name": "Junction A \u2014 South Gate Quad",
+  "timestamp_sec": 4.0,
+  "keyframe_url": "/api/ai/keyframes/junction_A_camera_01_t4.jpg",
+  "cv_telemetry": {
+    "camera_id": "junction_A_camera_01",
+    "timestamp_sec": 4.0,
+    "total_vehicles": 6,
+    "detected_plates": [
+      {
+        "plate": "WB37E1275",
+        "normalized_plate": "WB37E1275",
+        "vehicle_type": "car",
+        "confidence": 1.0,
+        "timestamp_sec": 3.9,
+        "is_blacklisted": false,
+        "plate_image_url": "/api/plates/junction_A_camera_01_trk11_f115_0007.jpg"
+      }
+    ],
+    "class_breakdown": {
+      "car": 5,
+      "truck": 2
+    },
+    "density_rating": "Moderate",
+    "sample_window_sec": 3.0
+  },
+  "detected_plates": [
+    {
+      "plate": "WB37E1275",
+      "normalized_plate": "WB37E1275",
+      "vehicle_type": "car",
+      "confidence": 1.0,
+      "timestamp_sec": 3.9,
+      "is_blacklisted": false,
+      "plate_image_url": "/api/plates/junction_A_camera_01_trk11_f115_0007.jpg"
+    }
+  ],
+  "analysis": {
+    "car": 5,
+    "truck": 2
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791012891.2630963
+}

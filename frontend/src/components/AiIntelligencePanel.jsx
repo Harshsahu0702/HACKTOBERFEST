@@ -337,8 +337,11 @@ export function AiIntelligencePanel({ onSelectVehicle, onFocusCamera }) {
                 className="ai-frame-img"
                 onError={(e) => {
                   const fallback = resolveMediaUrl(`/static/cache/keyframes/${selectedCamera}_t12.jpg`);
-                  if (e.target.src !== fallback) {
+                  const ultimateFallback = resolveMediaUrl('/api/plates/DET_000014.jpg');
+                  if (e.target.src !== fallback && e.target.src !== ultimateFallback) {
                     e.target.src = fallback;
+                  } else if (e.target.src !== ultimateFallback) {
+                    e.target.src = ultimateFallback;
                   }
                 }}
               />

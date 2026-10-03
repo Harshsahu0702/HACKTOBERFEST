@@ -90,7 +90,11 @@ videos/
 *.flv
 data/processed/
 dataset/grid/
-static/cache/
+static/cache/*
+!static/cache/keyframes/
+!static/cache/keyframes/**
+!static/cache/ai_intelligence/
+!static/cache/ai_intelligence/**
 
 # Extracted crops & image dumps
 !static/plates/

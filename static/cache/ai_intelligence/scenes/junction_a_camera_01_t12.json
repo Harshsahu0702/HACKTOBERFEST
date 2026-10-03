@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "camera_id": "junction_A_camera_01",
+  "camera_name": "Junction A \u2014 Camera 01 (Inbound Entry)",
+  "junction_name": "Junction A \u2014 South Gate Quad",
+  "timestamp_sec": 12.0,
+  "keyframe_url": "/api/ai/keyframes/junction_a_camera_01_t12.jpg",
+  "cv_telemetry": {
+    "total_vehicles": 0,
+    "class_breakdown": {
+      "car": 4,
+      "motorcycle": 2
+    },
+    "density_rating": "Low",
+    "sample_window_sec": 3.0
+  },
+  "analysis": {
+    "overview": "Live CCTV surveillance at Junction A \u2014 Camera 01 (Inbound Entry) (Junction A \u2014 South Gate Quad). Vehicle flow is progressing smoothly through the approach corridor with steady ingress.",
+    "congestion_level": "LOW",
+    "lane_observations": "Vehicles are evenly distributed across visible lanes. Observed 0 active targets within the detector window.",
+    "anomalies_or_hazards": "No hazardous lane blockage or stationary obstacles detected.",
+    "confidence_assessment": "High optical visibility under standard daylight conditions."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791008208.2395484
+}

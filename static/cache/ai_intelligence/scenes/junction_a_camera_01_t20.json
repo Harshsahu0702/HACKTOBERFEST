@@ -1,0 +1,87 @@
+{
+  "success": true,
+  "camera_id": "junction_A_camera_01",
+  "camera_name": "Junction A \u2014 Camera 01 (Inbound Entry)",
+  "junction_name": "Junction A \u2014 South Gate Quad",
+  "timestamp_sec": 20.0,
+  "keyframe_url": "/api/ai/keyframes/junction_A_camera_01_t20.jpg",
+  "cv_telemetry": {
+    "camera_id": "junction_A_camera_01",
+    "timestamp_sec": 20.0,
+    "total_vehicles": 10,
+    "detected_plates": [
+      {
+        "plate": "WB41G9853",
+        "normalized_plate": "WB41G9853",
+        "vehicle_type": "truck",
+        "confidence": 0.99,
+        "timestamp_sec": 18.0,
+        "is_blacklisted": false,
+        "plate_image_url": "/api/plates/junction_A_camera_01_trk79_f535_0014.jpg"
+      },
+      {
+        "plate": "JH10DL8792",
+        "normalized_plate": "JH10DL8792",
+        "vehicle_type": "car",
+        "confidence": 0.95,
+        "timestamp_sec": 20.5,
+        "is_blacklisted": false,
+        "plate_image_url": "/api/plates/junction_A_camera_01_trk99_f610_0021.jpg"
+      },
+      {
+        "plate": "WB39E2592",
+        "normalized_plate": "WB39E2592",
+        "vehicle_type": "car",
+        "confidence": 0.88,
+        "timestamp_sec": 22.9,
+        "is_blacklisted": false,
+        "plate_image_url": "/api/plates/junction_A_camera_01_trk128_f680_0028.jpg"
+      }
+    ],
+    "class_breakdown": {
+      "truck": 2,
+      "car": 10,
+      "motorcycle": 1
+    },
+    "density_rating": "High",
+    "sample_window_sec": 3.0
+  },
+  "detected_plates": [
+    {
+      "plate": "WB41G9853",
+      "normalized_plate": "WB41G9853",
+      "vehicle_type": "truck",
+      "confidence": 0.99,
+      "timestamp_sec": 18.0,
+      "is_blacklisted": false,
+      "plate_image_url": "/api/plates/junction_A_camera_01_trk79_f535_0014.jpg"
+    },
+    {
+      "plate": "JH10DL8792",
+      "normalized_plate": "JH10DL8792",
+      "vehicle_type": "car",
+      "confidence": 0.95,
+      "timestamp_sec": 20.5,
+      "is_blacklisted": false,
+      "plate_image_url": "/api/plates/junction_A_camera_01_trk99_f610_0021.jpg"
+    },
+    {
+      "plate": "WB39E2592",
+      "normalized_plate": "WB39E2592",
+      "vehicle_type": "car",
+      "confidence": 0.88,
+      "timestamp_sec": 22.9,
+      "is_blacklisted": false,
+      "plate_image_url": "/api/plates/junction_A_camera_01_trk128_f680_0028.jpg"
+    }
+  ],
+  "analysis": {
+    "overview": "Inbound traffic at Junction A is characterized by a steady flow of passenger vehicles and motorcycles. While the visual field shows active movement, telemetry indicates high bounding box density, suggesting significant vehicle presence in the sector.",
+    "congestion_level": "MODERATE",
+    "lane_observations": "Vehicles are utilizing the primary inbound lanes; a black car (JH10DL8792) is positioned in the mid-ground, while a motorcycle carrying two occupants is moving through the foreground. Traffic appears to be moving in a consistent directional flow.",
+    "anomalies_or_hazards": "None",
+    "confidence_assessment": "High; daylight visibility is sufficient despite slight atmospheric haze. License plate JH10DL8792 is clearly legible, supporting high detection confidence for primary foreground objects."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791012859.6720726
+}

@@ -1,0 +1,51 @@
+{
+  "success": true,
+  "camera_id": "junction_A_camera_01",
+  "camera_name": "Junction A \u2014 Camera 01 (Inbound Entry)",
+  "junction_name": "Junction A \u2014 South Gate Quad",
+  "timestamp_sec": 40.0,
+  "keyframe_url": "/api/ai/keyframes/junction_A_camera_01_t40.jpg",
+  "cv_telemetry": {
+    "camera_id": "junction_A_camera_01",
+    "timestamp_sec": 40.0,
+    "total_vehicles": 8,
+    "detected_plates": [
+      {
+        "plate": "WB01BJ1415",
+        "normalized_plate": "WB01BJ1415",
+        "vehicle_type": "car",
+        "confidence": 0.96,
+        "timestamp_sec": 40.4,
+        "is_blacklisted": false,
+        "plate_image_url": "/api/plates/junction_A_camera_01_trk326_f1200_0047.jpg"
+      }
+    ],
+    "class_breakdown": {
+      "car": 5,
+      "motorcycle": 2,
+      "truck": 2
+    },
+    "density_rating": "High",
+    "sample_window_sec": 3.0
+  },
+  "detected_plates": [
+    {
+      "plate": "WB01BJ1415",
+      "normalized_plate": "WB01BJ1415",
+      "vehicle_type": "car",
+      "confidence": 0.96,
+      "timestamp_sec": 40.4,
+      "is_blacklisted": false,
+      "plate_image_url": "/api/plates/junction_A_camera_01_trk326_f1200_0047.jpg"
+    }
+  ],
+  "analysis": {
+    "overview": "The inbound entry at Junction A shows moderate vehicle presence with a mix of passenger cars, motorcycles, and heavy vehicles. Traffic is moving in a single primary direction toward the camera, though density is increasing.",
+    "congestion_level": "MODERATE",
+    "lane_observations": "Vehicles are utilizing the main carriageway with a prominent car (WB01BJ1415) in the foreground. The presence of trucks and motorcycles suggests a heterogeneous traffic mix, with high bounding box density indicating vehicles are closely spaced.",
+    "anomalies_or_hazards": "None visible; roadway surface appears clear of immediate obstructions, though the presence of heavy vehicles (trucks) requires caution for smaller motorcycles.",
+    "confidence_assessment": "High confidence in vehicle classification and license plate recognition (WB01BJ1415) due to clear daylight visibility and direct frontal angle of the primary subject."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791013871.6490526
+}

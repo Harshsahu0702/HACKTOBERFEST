@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "anomaly_id": "ANOM_SIM_WB37E1275_1",
+  "plate": "WB37E1275",
+  "raw_anomaly": {
+    "anomaly_id": "ANOM_SIM_WB37E1275_1",
+    "alert_type": "ROUTE_ANOMALY",
+    "anomaly_type": "SIMULTANEOUS_DISTANT_OBSERVATION",
+    "plate": "WB37E1275",
+    "severity": "CRITICAL",
+    "priority": "HIGH",
+    "camera_sequence": [
+      "junction_A_camera_02",
+      "junction_B_camera_01"
+    ],
+    "cameras_label": "Vivekananda Sarani Camera 02 & Kanyapur Link Road Camera 01",
+    "timestamp_sequence": [
+      10.2,
+      10.5
+    ],
+    "timestamp_sec": 10.5,
+    "distance_m": 408.4,
+    "elapsed_time_sec": 0.3,
+    "calculated_speed_kmh": null,
+    "reason": "Vehicle observed at two distant cameras (408m apart) within 0.3s (Possible duplicate/clone plate)."
+  },
+  "evidence_image_url": "/api/plates/junction_B_camera_01_trk2630_f40_0005.jpg",
+  "explanation": {
+    "incident_title": "Spatiotemporal Impossibility: Probable License Plate Cloning",
+    "severity": "CRITICAL",
+    "forensic_explanation": "The system detected the same license plate (WB37E1275) at two geographically distinct locations\u2014Vivekananda Sarani Camera 02 and Kanyapur Link Road Camera 01\u2014within a 0.3-second interval. Given the physical corridor distance of 408.4 meters between these sensors, the required velocity to traverse this distance in 0.3 seconds would exceed 4,900 km/h, which is physically impossible for a motorcycle. This mathematical impossibility confirms a 'Simultaneous Distant Observation' anomaly, indicating that two different vehicles are likely utilizing the same registration number (cloning/spoofing).",
+    "evidence_summary": [
+      "License Plate Match: WB37E1275 detected at two distinct sensor nodes.",
+      "Temporal Delta: 0.3 seconds elapsed between sightings.",
+      "Spatial Delta: 408.4 meters separation between Camera 02 and Camera 01.",
+      "Velocity Calculation: Calculated speed is physically non-viable, ruling out a single vehicle movement."
+    ],
+    "suggested_action": "Immediate flag for Asansol Traffic Police to intercept both vehicles for physical verification of chassis numbers. Initiate a cross-reference check in the VAHAN database for any duplicate registrations in the WB37 jurisdiction.",
+    "court_admissibility_notes": "Evidence is prepared for Section 65B Indian Evidence Act compliance. Digital logs include synchronized UTC timestamps, sensor metadata, and the mathematical proof of spatiotemporal impossibility to establish the fraudulent nature of the duplicate plate."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791008338.324678
+}

@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "anomaly_id": "ALERT_3",
+  "plate": "WB37E1275",
+  "raw_anomaly": {
+    "anomaly_id": "ALERT_3",
+    "alert_type": "ROUTE_ANOMALY",
+    "anomaly_type": "SIMULTANEOUS_DISTANT_OBSERVATION",
+    "plate": "WB37E1275",
+    "severity": "CRITICAL",
+    "priority": "HIGH",
+    "camera_sequence": [
+      "junction_A_camera_02",
+      "junction_B_camera_01"
+    ],
+    "cameras_label": "Vivekananda Sarani Camera 02 & Kanyapur Link Road Camera 01",
+    "timestamp_sequence": [
+      10.2,
+      10.5
+    ],
+    "timestamp_sec": 10.5,
+    "distance_m": 408.4,
+    "elapsed_time_sec": 0.3,
+    "calculated_speed_kmh": null,
+    "reason": "Vehicle observed at two distant cameras (408m apart) within 0.3s (Possible duplicate/clone plate)."
+  },
+  "evidence_image_url": "/api/plates/junction_B_camera_01_trk2630_f40_0005.jpg",
+  "explanation": {
+    "incident_title": "Spatiotemporal Anomaly: Probable License Plate Cloning",
+    "severity": "CRITICAL",
+    "forensic_explanation": "The system detected the same license plate (WB37E1275) at two geographically distinct locations (Vivekananda Sarani Camera 02 and Kanyapur Link Road Camera 01) within a 0.3-second window. The physical distance between these two sensor nodes is 408.4 meters. For a single vehicle to traverse this distance in 0.3 seconds, it would require a velocity of approximately 4,900 km/h, which is physically impossible for a standard motorcycle. This mathematical impossibility confirms that the 'simultaneous distant observation' is not a movement anomaly but a digital identity anomaly, indicating that two different vehicles are utilizing the same registration number (cloning/spoofing).",
+    "evidence_summary": [
+      "License Plate Match: WB37E1275 identified at both sensor nodes.",
+      "Geographic Separation: 408.4 meters between Camera 02 and Camera 01.",
+      "Temporal Impossibility: Elapsed time of 0.3s between sightings.",
+      "Visual Confirmation: Low-resolution image confirms motorcycle profile, but plate legibility is degraded due to motion blur/distance."
+    ],
+    "suggested_action": "Immediate flagging of WB37E1275 in the Asansol Traffic Enforcement database. Dispatch local patrol to both corridors to intercept both vehicles for physical plate verification. Initiate a cross-reference check with the VAHAN database to identify discrepancies in vehicle make/model associated with this plate.",
+    "court_admissibility_notes": "Evidence is based on synchronized timestamped telemetry from two independent DRISHTI nodes. To ensure Section 65B compliance, the raw digital logs, sensor synchronization metadata, and the original uncompressed video frames from both cameras must be preserved as a single forensic package to prove the integrity of the automated detection."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791013532.3196132
+}

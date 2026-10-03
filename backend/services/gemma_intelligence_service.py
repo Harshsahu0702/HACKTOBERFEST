@@ -15,7 +15,10 @@ import logging
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 
-import cv2
+try:
+    import cv2
+except Exception:
+    cv2 = None
 import httpx
 from dotenv import load_dotenv
 
@@ -694,6 +697,9 @@ Respond in strictly valid JSON:
                 pass
 
         # Extract frame via OpenCV
+        if not cv2:
+            return None, None
+
         try:
             cap = cv2.VideoCapture(str(video_path))
             if not cap.isOpened():

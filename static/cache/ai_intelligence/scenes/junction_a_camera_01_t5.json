@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "camera_id": "junction_A_camera_01",
+  "camera_name": "Junction A \u2014 Camera 01 (Inbound Entry)",
+  "junction_name": "Junction A \u2014 South Gate Quad",
+  "timestamp_sec": 5.0,
+  "keyframe_url": "/api/ai/keyframes/junction_A_camera_01_t5.jpg",
+  "cv_telemetry": {
+    "total_vehicles": 3,
+    "class_breakdown": {
+      "car": 1,
+      "truck": 1,
+      "motorcycle": 1
+    },
+    "density_rating": "Moderate",
+    "sample_window_sec": 3.0
+  },
+  "analysis": {
+    "overview": "Traffic flow at the Junction A South Gate Quad is currently light with minimal vehicle density. Inbound movement is steady with sparse vehicle distribution across the wide roadway.",
+    "congestion_level": "LOW",
+    "lane_observations": "Vehicles are maintaining significant lateral spacing. The primary vehicle in the mid-ground is positioned within the inbound lane, while distant vehicles are visible further down the corridor, utilizing the available road width.",
+    "anomalies_or_hazards": "None detected, although the road surface appears heavily dusty and potentially uneven, which may impact traction.",
+    "confidence_assessment": "High visual clarity under daylight conditions; however, the absence of distinct lane markings due to surface dust may introduce minor uncertainty in precise lane-occupancy telemetry."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791010327.022683
+}

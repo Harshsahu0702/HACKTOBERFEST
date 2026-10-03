@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "camera_id": "junction_A_camera_02",
+  "camera_name": "Junction A \u2014 Camera 02 (Outbound Exit)",
+  "junction_name": "Junction A \u2014 South Gate Quad",
+  "timestamp_sec": 10.0,
+  "keyframe_url": "/api/ai/keyframes/junction_a_camera_02_t10.jpg",
+  "cv_telemetry": {
+    "total_vehicles": 0,
+    "class_breakdown": {
+      "car": 4,
+      "motorcycle": 2
+    },
+    "density_rating": "Low",
+    "sample_window_sec": 3.0
+  },
+  "analysis": {
+    "overview": "The outbound exit at Junction A is currently devoid of visible vehicular traffic. The roadway appears clear of active movement at this specific timestamp.",
+    "congestion_level": "LOW",
+    "lane_observations": "No vehicles are visible within the frame; lane utilization is at 0%. The road surface appears unobstructed by stationary vehicles or queues.",
+    "anomalies_or_hazards": "None. The roadway is clear of visible obstructions or spills.",
+    "confidence_assessment": "Moderate. While the road is visually clear, the discrepancy between the CV telemetry (reporting 4 cars and 2 motorcycles) and the visual evidence (0 vehicles visible) suggests a potential sensor error, a detection of vehicles outside the current camera FOV, or a significant processing lag."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791008733.0914316
+}

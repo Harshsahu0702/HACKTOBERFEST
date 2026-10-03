@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "plate": "WB37E1275",
+  "trajectory_count": 1,
+  "intelligence": {
+    "journey_narrative": "The vehicle with plate WB37E1275 was first detected entering the surveillance network at Junction B \u2014 North Gate Quad via Camera 01. Due to only a single observation point at the inbound entry, the full transit through the corridor cannot be tracked. No further movement or exit data is available for this specific journey.",
+    "transit_status": "NORMAL",
+    "average_speed_kmh": 0.0,
+    "total_corridor_time_sec": 0.0,
+    "key_findings": [
+      "Single point of detection recorded at Junction B \u2014 North Gate Quad (Inbound Entry).",
+      "Insufficient telemetry to calculate transit duration or average speed across the corridor.",
+      "Incomplete journey data; vehicle exit point and subsequent movement are unobserved."
+    ]
+  },
+  "model": "gemma-4-26b-a4b-it"
+}

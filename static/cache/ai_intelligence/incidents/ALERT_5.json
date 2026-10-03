@@ -1,0 +1,44 @@
+{
+  "success": true,
+  "anomaly_id": "ALERT_5",
+  "plate": "JH10CS2095",
+  "raw_anomaly": {
+    "anomaly_id": "ALERT_5",
+    "alert_type": "ROUTE_ANOMALY",
+    "anomaly_type": "SIMULTANEOUS_DISTANT_OBSERVATION",
+    "plate": "JH10CS2095",
+    "severity": "CRITICAL",
+    "priority": "HIGH",
+    "camera_sequence": [
+      "junction_A_camera_02",
+      "junction_B_camera_01"
+    ],
+    "cameras_label": "Vivekananda Sarani Camera 02 & Kanyapur Link Road Camera 01",
+    "timestamp_sequence": [
+      10.2,
+      10.5
+    ],
+    "timestamp_sec": 10.5,
+    "distance_m": 408.4,
+    "elapsed_time_sec": 0.3,
+    "calculated_speed_kmh": null,
+    "reason": "Vehicle observed at two distant cameras (408m apart) within 0.3s (Possible duplicate/clone plate)."
+  },
+  "evidence_image_url": "/api/plates/junction_A_camera_01_trk1266_f5880_0185.jpg",
+  "explanation": {
+    "incident_title": "Spatiotemporal Impossibility: Probable License Plate Cloning",
+    "severity": "CRITICAL",
+    "forensic_explanation": "The system detected the same license plate (JH10CS2095) at two geographically distinct locations (Vivekananda Sarani Camera 02 and Kanyapur Link Road Camera 01) within a temporal window of 0.3 seconds. Given the physical corridor distance of 408.4 meters between these sensors, the required velocity to bridge this gap would exceed the laws of physics for any terrestrial vehicle. This mathematical impossibility confirms that the same alphanumeric string is being utilized by two different physical entities simultaneously, indicating a high-probability case of license plate cloning or fraudulent duplication.",
+    "evidence_summary": [
+      "License Plate ID: JH10CS2095 detected at two distinct sensor nodes.",
+      "Spatial Gap: 408.4 meters between Vivekananda Sarani and Kanyapur Link Road.",
+      "Temporal Gap: 0.3 seconds elapsed between sightings.",
+      "Calculated Velocity Requirement: ~4,898 km/h (Physically impossible).",
+      "Visual Confirmation: Image evidence shows a three-wheeled commercial vehicle (auto-rickshaw/cargo loader) consistent with local transit profiles."
+    ],
+    "suggested_action": "Immediate dispatch of local enforcement units to both sensor zones to intercept both vehicles. Flag JH10CS2095 in the Vahan database as 'Suspected Cloned' and initiate a manual verification of the vehicle's physical chassis number against the registered owner's profile.",
+    "court_admissibility_notes": "Evidence is derived from synchronized timestamped telemetry and dual-node computer vision logs. To ensure Section 65B compliance, the digital logs, sensor synchronization metadata, and raw video frames from both cameras must be preserved in a non-volatile format with a certified hash value to prove integrity and prevent tampering."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791013945.433442
+}

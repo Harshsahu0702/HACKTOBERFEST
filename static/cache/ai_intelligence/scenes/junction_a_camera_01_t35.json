@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "camera_id": "junction_A_camera_01",
+  "camera_name": "Junction A \u2014 Camera 01 (Inbound Entry)",
+  "junction_name": "Junction A \u2014 South Gate Quad",
+  "timestamp_sec": 35.0,
+  "keyframe_url": "/api/ai/keyframes/junction_A_camera_01_t35.jpg",
+  "cv_telemetry": {
+    "total_vehicles": 5,
+    "class_breakdown": {
+      "motorcycle": 3,
+      "truck": 1,
+      "car": 1
+    },
+    "density_rating": "Moderate",
+    "sample_window_sec": 3.0
+  },
+  "analysis": {
+    "overview": "The traffic flow at Junction A is currently light to moderate, characterized by a mix of motorcycles and a passenger car. Vehicles are moving steadily with no signs of significant accumulation or gridlock.",
+    "congestion_level": "LOW",
+    "lane_observations": "A silver passenger car is occupying the left lane, while three motorcycles are distributed across the center and right-center of the roadway. The vehicle positioning indicates mixed-class traffic utilizing the available road width for inbound movement.",
+    "anomalies_or_hazards": "The road surface appears to have a layer of fine dust or loose debris, which may present a traction hazard for two-wheelers. No major roadway obstructions or queue spills are currently visible.",
+    "confidence_assessment": "High confidence in the detection of visible motorcycles and the passenger car. Note: The 'truck' identified in the telemetry is not clearly distinguishable in the immediate foreground, suggesting it may be located in the background or partially obscured by distance/atmospheric conditions. Visual clarity is sufficient under overcast daylight."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791011114.0812523
+}

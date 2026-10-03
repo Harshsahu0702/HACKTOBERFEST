@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "anomaly_id": "ALERT_14",
+  "plate": "JH10DL8792",
+  "raw_anomaly": {
+    "anomaly_id": "ALERT_14",
+    "alert_type": "ROUTE_ANOMALY",
+    "anomaly_type": "SIMULTANEOUS_DISTANT_OBSERVATION",
+    "plate": "JH10DL8792",
+    "severity": "CRITICAL",
+    "priority": "HIGH",
+    "camera_sequence": [
+      "junction_A_camera_02",
+      "junction_B_camera_01"
+    ],
+    "cameras_label": "Vivekananda Sarani Camera 02 & Kanyapur Link Road Camera 01",
+    "timestamp_sequence": [
+      10.2,
+      10.5
+    ],
+    "timestamp_sec": 10.5,
+    "distance_m": 408.4,
+    "elapsed_time_sec": 0.3,
+    "calculated_speed_kmh": null,
+    "reason": "Vehicle observed at two distant cameras (408m apart) within 0.3s (Possible duplicate/clone plate)."
+  },
+  "evidence_image_url": "/api/plates/junction_A_camera_01_trk99_f610_0021.jpg",
+  "explanation": {
+    "incident_title": "Spatiotemporal Impossibility: Probable License Plate Cloning",
+    "severity": "CRITICAL",
+    "forensic_explanation": "The system detected the same license plate (JH10DL8792) at two geographically distinct locations (Vivekananda Sarani Camera 02 and Kanyapur Link Road Camera 01) within a 0.3-second interval. Given the physical corridor distance of 408.4 meters between these sensors, the required velocity to bridge this gap would exceed the laws of physics. This mathematical impossibility confirms that the vehicle identity is being spoofed or 'cloned' by a second vehicle using a duplicate plate to evade detection or misdirect traffic penalties.",
+    "evidence_summary": [
+      "License Plate Match: JH10DL8792 identified at two distinct sensor nodes.",
+      "Spatiotemporal Conflict: 408.4 meters traversed in 0.3 seconds (calculated impossible velocity).",
+      "Timestamp Synchronization: Simultaneous sighting at T+10.2s across disparate camera IDs.",
+      "Visual Confirmation: Image evidence shows a teal-colored scooter, which must be cross-referenced with the secondary sighting to confirm vehicle model mismatch."
+    ],
+    "suggested_action": "Immediate escalation to Asansol Traffic Police for manual intercept. Initiate a database cross-check for all vehicles registered under JH10DL8792 to identify the legitimate owner and the suspected clone vehicle. Flag the plate in the Integrated Traffic Management System (ITMS) to trigger real-time alerts for all patrol units.",
+    "court_admissibility_notes": "Evidence is captured via synchronized digital sensors. To ensure Section 65B of the Indian Evidence Act compliance, the digital logs, system timestamps, and raw video streams must be extracted with a verified hash value and accompanied by a certificate from the DRISHTI system administrator."
+  },
+  "model": "gemma-4-26b-a4b-it",
+  "timestamp": 1791013818.1974943
+}
